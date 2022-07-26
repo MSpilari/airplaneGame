@@ -2,6 +2,7 @@ import './style.css'
 import kaboom from 'kaboom'
 import { spriteLoader } from './src/utils/spriteLoader'
 import { Background } from './src/components/background'
+import { menu } from './src/scenes/menu'
 
 kaboom({
 	global: true,
@@ -10,4 +11,6 @@ kaboom({
 
 spriteLoader()
 
-Background('bgGreenHills')
+scene('menu', () => menu())
+
+go('menu')
