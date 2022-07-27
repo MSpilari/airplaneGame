@@ -7,7 +7,11 @@ const menu = () => {
 		'plane2Yellow',
 		'plane2Blue',
 		'plane2Red',
-		'plane2Green'
+		'plane2Green',
+		'plane3Yellow',
+		'plane3Blue',
+		'plane3Red',
+		'plane3Green'
 	]
 
 	let bgMenu = add([
