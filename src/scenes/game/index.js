@@ -1,7 +1,7 @@
 import { Background } from '../../components/background'
 
 const game = () => {
-	Background('bgGreenHills')
+	Background('bgGreenHills', true)
 }
 
 export { game }

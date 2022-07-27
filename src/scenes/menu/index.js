@@ -1,3 +1,5 @@
+import { Background } from '../../components/background'
+
 const menu = () => {
 	const planes = [
 		'plane1Blue',
@@ -14,9 +16,7 @@ const menu = () => {
 		'plane3Green'
 	]
 
-	let bgMenu = add([
-		sprite('bgGreenHills', { width: width(), height: height() }, z(-1))
-	])
+	Background('bgGreenHills', false)
 
 	let GameName = add([
 		text("SHOOT\nN'\nFLY"),
