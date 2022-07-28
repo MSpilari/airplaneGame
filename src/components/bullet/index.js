@@ -13,7 +13,7 @@ const bullet = (spriteID, widthSprite, heightSprite, shooter, posX, posY) => {
 
 	onCollide('player', 'bullet', (player, bullet) => {
 		bullet.destroy()
-		shake()
+		player.hurt(25)
 	})
 }
 
