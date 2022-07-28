@@ -1,4 +1,5 @@
 import { Background } from '../../components/background'
+import { button } from '../../components/button'
 
 const menu = () => {
 	const planes = [
@@ -19,26 +20,12 @@ const menu = () => {
 	Background('bgGreenHills', false)
 
 	let GameName = add([
-		text("SHOOT\nN'\nFLY"),
-		color(RED),
+		sprite('gameName', { width: 240, height: 200 }),
 		pos(center()),
 		origin('center')
 	])
 
-	let buttonRect = add([
-		pos(width() / 2, (3 * height()) / 4),
-		rect(200, 40),
-		color(RED),
-		origin('center'),
-		'bgButton',
-		area()
-	])
-
-	let buttonText = add([
-		text('Start', { size: 20 }),
-		pos(width() / 2, (3 * height()) / 4),
-		origin('center')
-	])
+	button('Start')
 
 	loop(3, () => {
 		let planeSpeed = randi(0, 2) % 2 === 0 ? -300 : 300
