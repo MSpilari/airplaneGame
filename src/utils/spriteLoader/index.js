@@ -17,10 +17,14 @@ import fireballPink from '../../assets/planes/torpedo/fire_ball_pink.png'
 import torpedoBlack from '../../assets/planes/torpedo/torpedo_black.png'
 import torpedoFlame from '../../assets/planes/torpedo/torpedo_flame.png'
 import torpedo from '../../assets/planes/torpedo/torpedo.png'
+import gameName from '../../assets/GUI/icons_set/gameName.png'
 
 const spriteLoader = () => {
 	// Backgrounds
 	loadSprite('bgGreenHills', bgGreenHills)
+
+	// Game Name
+	loadSprite('gameName', gameName)
 
 	// Planes
 	loadSprite('plane1Blue', plane_1_blue)
