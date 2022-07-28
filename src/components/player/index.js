@@ -1,7 +1,9 @@
 import { bullet } from '../bullet'
 
+let playerChar
+
 const player = (spriteID, widthSprite, heightSprite) => {
-	let playerChar = add([
+	playerChar = add([
 		sprite(spriteID, { width: widthSprite, height: heightSprite }),
 		pos(30, height() / 2),
 		area(),
@@ -28,6 +30,11 @@ const player = (spriteID, widthSprite, heightSprite) => {
 	onKeyDown('space', () => {
 		bullet('fireball', 80, 40, 'Player', playerChar.pos.x, playerChar.pos.y)
 	})
+
+	playerChar.on('death', () => {
+		destroy(playerChar)
+		go('gameOver')
+	})
 }
 
-export { player }
+export { player, playerChar }
