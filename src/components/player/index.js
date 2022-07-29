@@ -27,7 +27,7 @@ const player = (spriteID, widthSprite, heightSprite) => {
 		playerChar.pos.x < width() && playerChar.move(500, 0)
 	})
 
-	onKeyDown('space', () => {
+	onKeyPress('space', () => {
 		bullet('fireball', 80, 40, 'Player', playerChar.pos.x, playerChar.pos.y)
 	})
 
