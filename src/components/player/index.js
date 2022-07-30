@@ -16,7 +16,7 @@ const player = (spriteID, widthSprite, heightSprite) => {
 	})
 
 	onKeyDown('down', () => {
-		playerChar.pos.y <= height() && playerChar.move(0, 500)
+		playerChar.pos.y <= height() - heightSprite && playerChar.move(0, 500)
 	})
 
 	onKeyDown('left', () => {
@@ -24,7 +24,7 @@ const player = (spriteID, widthSprite, heightSprite) => {
 	})
 
 	onKeyDown('right', () => {
-		playerChar.pos.x < width() && playerChar.move(500, 0)
+		playerChar.pos.x < width() - widthSprite && playerChar.move(500, 0)
 	})
 
 	onKeyPress('space', () => {
