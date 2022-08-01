@@ -1,9 +1,7 @@
 import { bullet } from '../bullet'
 
-let playerChar
-
 const player = (spriteID, widthSprite, heightSprite) => {
-	playerChar = add([
+	let playerChar = add([
 		sprite(spriteID, { width: widthSprite, height: heightSprite }),
 		pos(30, height() / 2),
 		area(),
@@ -28,13 +26,16 @@ const player = (spriteID, widthSprite, heightSprite) => {
 	})
 
 	onKeyPress('space', () => {
-		bullet('fireball', 80, 40, 'Player', playerChar.pos.x, playerChar.pos.y)
+		playerChar.exists() &&
+			bullet('fireball', 80, 40, 'Player', playerChar.pos.x, playerChar.pos.y)
 	})
+
+	onCollide('player', 'bullet', player => player.hurt(25))
 
 	playerChar.on('death', () => {
 		destroy(playerChar)
-		go('gameOver')
+		// go('gameOver')
 	})
 }
 
-export { player, playerChar }
+export { player }
