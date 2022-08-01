@@ -6,7 +6,7 @@ const bullet = (spriteID, widthSprite, heightSprite, shooter, posX, posY) => {
 			flipX: shooter === 'Enemy'
 		}),
 		area(),
-		pos(posX + 150, posY),
+		shooter === 'Enemy' ? pos(posX - 150, posY) : pos(posX + 150, posY),
 		shooter === 'Enemy' ? move((100, 0), -400) : move((100, 0), 400),
 		'bullet',
 		cleanup()
