@@ -11,10 +11,20 @@ import plane_3_blue from '../../assets/planes/plane_3/plane_3_blue.png'
 import plane_3_green from '../../assets/planes/plane_3/plane_3_green.png'
 import plane_3_red from '../../assets/planes/plane_3/plane_3_red.png'
 import plane_3_yellow from '../../assets/planes/plane_3/plane_3_yellow.png'
+import fireball from '../../assets/planes/torpedo/fire_ball_1.png'
+import fireballBlue from '../../assets/planes/torpedo/fire_ball_blue.png'
+import fireballPink from '../../assets/planes/torpedo/fire_ball_pink.png'
+import torpedoBlack from '../../assets/planes/torpedo/torpedo_black.png'
+import torpedoFlame from '../../assets/planes/torpedo/torpedo_flame.png'
+import torpedo from '../../assets/planes/torpedo/torpedo.png'
+import gameName from '../../assets/GUI/icons_set/gameName.png'
 
 const spriteLoader = () => {
 	// Backgrounds
 	loadSprite('bgGreenHills', bgGreenHills)
+
+	// Game Name
+	loadSprite('gameName', gameName)
 
 	// Planes
 	loadSprite('plane1Blue', plane_1_blue)
@@ -29,6 +39,14 @@ const spriteLoader = () => {
 	loadSprite('plane3Blue', plane_3_blue)
 	loadSprite('plane3Red', plane_3_red)
 	loadSprite('plane3Green', plane_3_green)
+
+	// Bullets Missiles
+	loadSprite('fireball', fireball)
+	loadSprite('fireballBlue', fireballBlue)
+	loadSprite('fireballPink', fireballPink)
+	loadSprite('torpedoBlack', torpedoBlack)
+	loadSprite('torpedoFlame', torpedoFlame)
+	loadSprite('torpedo', torpedo)
 }
 
 export { spriteLoader }
