@@ -34,7 +34,7 @@ const player = (spriteID, widthSprite, heightSprite) => {
 
 	playerChar.on('death', () => {
 		destroy(playerChar)
-		// go('gameOver')
+		go('gameOver')
 	})
 }
 
