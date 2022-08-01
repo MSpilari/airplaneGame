@@ -1,13 +1,11 @@
 import { bullet } from '../bullet'
 
-let enemyChar
-
 const enemy = (spriteID, widthSprite, heightSprite) => {
 	let enemyMovement = 'up'
 
-	enemyChar = add([
+	let enemyChar = add([
 		sprite(spriteID, { width: widthSprite, height: heightSprite, flipX: true }),
-		pos(width() - 200, height() / 2),
+		pos(width() - widthSprite, height() / 2),
 		area(),
 		'enemy',
 		health(200)
@@ -25,13 +23,13 @@ const enemy = (spriteID, widthSprite, heightSprite) => {
 			enemyMovement = 'up'
 	})
 
+	onCollide('enemy', 'bullet', enemy => enemy.hurt(25))
+
 	loop(3, () => {
 		bullet('fireballBlue', 80, 40, 'Enemy', enemyChar.pos.x, enemyChar.pos.y)
 	})
 
-	enemyChar.on('death', () => {
-		destroy(enemyChar)
-	})
+	enemyChar.on('death', () => destroy(enemyChar))
 }
 
-export { enemy, enemyChar }
+export { enemy }
