@@ -8,18 +8,13 @@ const bullet = (spriteID, widthSprite, heightSprite, shooter, posX, posY) => {
 		area(),
 		pos(posX + 150, posY),
 		shooter === 'Enemy' ? move((100, 0), -400) : move((100, 0), 400),
-		'bullet'
+		'bullet',
+		cleanup()
 	])
 
-	onCollide('player', 'bullet', (player, bullet) => {
-		bullet.destroy()
-		player.hurt(25)
-	})
+	onCollide('bullet', 'player', bullet => bullet.destroy())
 
-	onCollide('enemy', 'bullet', (enemy, bullet) => {
-		bullet.destroy()
-		enemy.hurt(25)
-	})
+	onCollide('bullet', 'enemy', bullet => bullet.destroy())
 }
 
 export { bullet }
