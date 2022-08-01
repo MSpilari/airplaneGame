@@ -1,14 +1,7 @@
-import { playerChar } from '../player'
-
 const healthIndicator = () => {
-	let life = playerChar.hp()
+	let hpIndicator = add([text('HP:' + 100), pos(0, 0)])
 
-	let hpIndicator = add([text('HP:' + life), pos(0, 0)])
-
-	onUpdate(
-		'player',
-		player => player.hp() !== life && (hpIndicator.text = 'HP:' + player.hp())
-	)
+	onUpdate('player', player => (hpIndicator.text = 'HP:' + player.hp()))
 }
 
 export { healthIndicator }
