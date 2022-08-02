@@ -14,7 +14,7 @@ const player = (spriteID, widthSprite, heightSprite) => {
 
 	playerMovements(playerChar, widthSprite, heightSprite)
 
-	playerShoots()
+	playerShoots(playerChar)
 
 	playerCollisions()
 
