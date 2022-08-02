@@ -1,3 +1,5 @@
+import { bullet } from '../bullet'
+
 const playerShoots = playerChar => {
 	onKeyPress('space', () => {
 		playerChar.exists() &&
