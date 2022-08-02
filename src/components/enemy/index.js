@@ -1,4 +1,5 @@
 import { bullet } from '../bullet'
+import { planeExplosion } from '../planeExplosion'
 
 const enemy = (spriteID, widthSprite, heightSprite) => {
 	let enemyMovement = 'up'
@@ -26,10 +27,20 @@ const enemy = (spriteID, widthSprite, heightSprite) => {
 	onCollide('enemy', 'bullet', enemy => enemy.hurt(25))
 
 	loop(3, () => {
-		bullet('fireballBlue', 80, 40, 'Enemy', enemyChar.pos.x, enemyChar.pos.y)
+		enemyChar.exists() &&
+			bullet('fireballBlue', 80, 40, 'Enemy', enemyChar.pos.x, enemyChar.pos.y)
 	})
 
-	enemyChar.on('death', () => destroy(enemyChar))
+	enemyChar.on('death', () => {
+		destroy(enemyChar)
+		planeExplosion(
+			widthSprite,
+			heightSprite,
+			2,
+			enemyChar.pos.x,
+			enemyChar.pos.y
+		)
+	})
 }
 
 export { enemy }

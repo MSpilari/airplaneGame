@@ -1,4 +1,5 @@
 import { bullet } from '../bullet'
+import { planeExplosion } from '../planeExplosion'
 
 const player = (spriteID, widthSprite, heightSprite) => {
 	let playerChar = add([
@@ -34,6 +35,13 @@ const player = (spriteID, widthSprite, heightSprite) => {
 
 	playerChar.on('death', () => {
 		destroy(playerChar)
+		planeExplosion(
+			widthSprite,
+			heightSprite,
+			2,
+			playerChar.pos.x,
+			playerChar.pos.y
+		)
 		go('gameOver')
 	})
 }
