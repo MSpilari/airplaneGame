@@ -18,14 +18,14 @@ const littleEnemies = (widthSprite, heightSprite) => {
 		'littleEnemy'
 	])
 
-	onCollide('littleEnemy', 'player', () => {
-		destroy(currentEnemy)
+	onCollide('littleEnemy', 'player', littleEnemy => {
+		destroy(littleEnemy)
 		planeExplosion(
 			widthSprite,
 			heightSprite,
 			2,
-			currentEnemy.pos.x,
-			currentEnemy.pos.y
+			littleEnemy.pos.x,
+			littleEnemy.pos.y
 		)
 	})
 }
