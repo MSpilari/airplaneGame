@@ -9,15 +9,6 @@ const gameOver = () => {
 	button('Restart')
 
 	onClick('bgButton', () => go('game'))
-
-	// add([
-	// 	sprite('planeExplosion', {
-	// 		width: 150,
-	// 		height: 80,
-	// 		animSpeed: 1,
-	// 		anim: 'explode'
-	// 	})
-	// ])
 }
 
 export { gameOver }
