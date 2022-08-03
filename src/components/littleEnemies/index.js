@@ -1,4 +1,4 @@
-import { planeExplosion } from '../planeExplosion'
+import { explosion } from '../explosion'
 
 const littleEnemies = (widthSprite, heightSprite) => {
 	const allLittleEnemies = ['torpedoBlack', 'torpedoFlame', 'torpedo']
@@ -20,7 +20,7 @@ const littleEnemies = (widthSprite, heightSprite) => {
 
 	onCollide('littleEnemy', 'player', littleEnemy => {
 		destroy(littleEnemy)
-		planeExplosion(
+		explosion(
 			widthSprite,
 			heightSprite,
 			2,

@@ -1,5 +1,5 @@
 import { bullet } from '../bullet'
-import { planeExplosion } from '../planeExplosion'
+import { explosion } from '../explosion'
 
 const enemy = (spriteID, widthSprite, heightSprite) => {
 	let enemyMovement = 'up'
@@ -33,13 +33,7 @@ const enemy = (spriteID, widthSprite, heightSprite) => {
 
 	enemyChar.on('death', () => {
 		destroy(enemyChar)
-		planeExplosion(
-			widthSprite,
-			heightSprite,
-			2,
-			enemyChar.pos.x,
-			enemyChar.pos.y
-		)
+		explosion(widthSprite, heightSprite, 2, enemyChar.pos.x, enemyChar.pos.y)
 	})
 }
 

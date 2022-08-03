@@ -1,4 +1,4 @@
-import { planeExplosion } from '../planeExplosion'
+import { explosion } from '../explosion'
 import { playerCollisions } from './collisions'
 import { playerMovements } from './movements'
 import { playerShoots } from './shoots'
@@ -20,13 +20,7 @@ const player = (spriteID, widthSprite, heightSprite) => {
 
 	playerChar.on('death', () => {
 		destroy(playerChar)
-		planeExplosion(
-			widthSprite,
-			heightSprite,
-			2,
-			playerChar.pos.x,
-			playerChar.pos.y
-		)
+		explosion(widthSprite, heightSprite, 2, playerChar.pos.x, playerChar.pos.y)
 		go('gameOver')
 	})
 }
