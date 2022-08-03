@@ -18,7 +18,6 @@ import torpedoBlack from '../../assets/planes/torpedo/torpedo_black.png'
 import torpedoFlame from '../../assets/planes/torpedo/torpedo_flame.png'
 import torpedo from '../../assets/planes/torpedo/torpedo.png'
 import gameName from '../../assets/GUI/icons_set/gameName.png'
-import planeExplosion from '../../assets/explosionEffect/spritesheet/spritesheet.png'
 
 const spriteLoader = () => {
 	// Backgrounds
@@ -48,18 +47,6 @@ const spriteLoader = () => {
 	loadSprite('torpedoBlack', torpedoBlack)
 	loadSprite('torpedoFlame', torpedoFlame)
 	loadSprite('torpedo', torpedo)
-
-	//Explosion Effect
-	loadSprite('planeExplosion', planeExplosion, {
-		sliceX: 3,
-		sliceY: 3,
-		anims: {
-			explode: {
-				from: 0,
-				to: 8
-			}
-		}
-	})
 }
 
 export { spriteLoader }
