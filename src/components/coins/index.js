@@ -13,10 +13,26 @@ const coins = (widthSprite, heightSprite) => {
 			anim: 'fly'
 		}),
 		`${allCoins[allCoinsIndex]}`,
-		pos(width() - widthSprite, randi(0, height())),
+		pos(width() - widthSprite / 2, randi(0, height() - heightSprite)),
 		area(),
-		cleanup()
+		cleanup(),
+		move((100, 0), -100)
 	])
+
+	onUpdate(() => {
+		if (coinMovement === 'up' && currentCoin.pos.y > 0)
+			currentCoin.move(0, -300)
+
+		if (coinMovement === 'up' && currentCoin.pos.y < 0) coinMovement = 'down'
+
+		if (coinMovement === 'down' && currentCoin.pos.y < height())
+			currentCoin.move(0, 300)
+
+		if (coinMovement === 'down' && currentCoin.pos.y > height() - heightSprite)
+			coinMovement = 'up'
+	})
+
+	onCollide(`${allCoins[allCoinsIndex]}`, 'player', coin => destroy(coin))
 }
 
 export { coins }
