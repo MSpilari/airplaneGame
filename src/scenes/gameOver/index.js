@@ -4,7 +4,7 @@ import { button } from '../../components/button'
 const gameOver = () => {
 	Background('bgGreenHills', false)
 
-	add([text('Game Over !!'), pos(center())])
+	add([text('Game Over !!'), pos(center()), origin('center')])
 
 	button('Restart')
 

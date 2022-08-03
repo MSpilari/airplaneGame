@@ -1,4 +1,7 @@
-import { bullet } from '../bullet'
+import { explosion } from '../explosion'
+import { playerCollisions } from './collisions'
+import { playerMovements } from './movements'
+import { playerShoots } from './shoots'
 
 const player = (spriteID, widthSprite, heightSprite) => {
 	let playerChar = add([
@@ -9,31 +12,15 @@ const player = (spriteID, widthSprite, heightSprite) => {
 		health(100)
 	])
 
-	onKeyDown('up', () => {
-		playerChar.pos.y >= 0 && playerChar.move(0, -500)
-	})
+	playerMovements(playerChar, widthSprite, heightSprite)
 
-	onKeyDown('down', () => {
-		playerChar.pos.y <= height() - heightSprite && playerChar.move(0, 500)
-	})
+	playerShoots(playerChar)
 
-	onKeyDown('left', () => {
-		playerChar.pos.x >= 0 && playerChar.move(-500, 0)
-	})
-
-	onKeyDown('right', () => {
-		playerChar.pos.x < width() - widthSprite && playerChar.move(500, 0)
-	})
-
-	onKeyPress('space', () => {
-		playerChar.exists() &&
-			bullet('fireball', 80, 40, 'Player', playerChar.pos.x, playerChar.pos.y)
-	})
-
-	onCollide('player', 'bullet', player => player.hurt(25))
+	playerCollisions()
 
 	playerChar.on('death', () => {
 		destroy(playerChar)
+		explosion(widthSprite, heightSprite, 2, playerChar.pos.x, playerChar.pos.y)
 		go('gameOver')
 	})
 }
