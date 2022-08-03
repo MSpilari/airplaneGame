@@ -37,7 +37,7 @@ const menu = () => {
 				flipX: planeSpeed < 0
 			}),
 			move((20, 0), planeSpeed),
-			pos(posX, rand(height()))
+			pos(posX, rand(height() - 80))
 		])
 	})
 
