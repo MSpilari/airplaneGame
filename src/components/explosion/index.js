@@ -1,4 +1,4 @@
-const planeExplosion = (
+const explosion = (
 	widthSprite,
 	heightSprite,
 	animationSpeed,
@@ -6,7 +6,7 @@ const planeExplosion = (
 	charPosY
 ) => {
 	let explosionAnimation = add([
-		sprite('planeExplosion', {
+		sprite('explosion', {
 			width: widthSprite,
 			height: heightSprite,
 			animSpeed: animationSpeed,
@@ -18,4 +18,4 @@ const planeExplosion = (
 	wait(animationSpeed, () => destroy(explosionAnimation))
 }
 
-export { planeExplosion }
+export { explosion }
