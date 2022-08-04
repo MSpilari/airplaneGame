@@ -12,6 +12,7 @@
     "vite": "^3.0.0"
   },
   "dependencies": {
-    "kaboom": "^2000.2.9"
+    "kaboom": "^2000.2.9",
+    "vercel": "^27.3.5"
   }
 }
