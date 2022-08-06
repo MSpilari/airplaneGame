@@ -3,6 +3,7 @@ import { game } from './src/scenes/game'
 import { gameOver } from './src/scenes/gameOver'
 import { menu } from './src/scenes/menu'
 import { animatedSpriteLoader } from './src/utils/animatedSpriteLoader'
+import { soundLoader } from './src/utils/soundLoader'
 import { spriteLoader } from './src/utils/spriteLoader'
 import './style.css'
 
@@ -13,6 +14,7 @@ kaboom({
 
 spriteLoader()
 animatedSpriteLoader()
+soundLoader()
 
 scene('menu', () => menu())
 
