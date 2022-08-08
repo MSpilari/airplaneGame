@@ -15,6 +15,8 @@ const explosion = (
 		pos(charPosX, charPosY)
 	])
 
+	explosionAnimation.exists() && play('explosionSound', { volume: 0.3 })
+
 	wait(animationSpeed, () => destroy(explosionAnimation))
 }
 
