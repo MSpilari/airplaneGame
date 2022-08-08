@@ -11,6 +11,8 @@ kaboom({
 	global: true,
 	fullscreen: true
 })
+const buttonAudioContext = document.getElementById('audioContext')
+buttonAudioContext.click()
 
 spriteLoader()
 animatedSpriteLoader()
