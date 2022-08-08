@@ -11,6 +11,9 @@ kaboom({
 	global: true,
 	fullscreen: true
 })
+
+// This is used to prevent the warning "AudioContext was not allowed to start" on console
+// By doing this the game sounds will be ok
 const buttonAudioContext = document.getElementById('audioContext')
 buttonAudioContext.click()
 
