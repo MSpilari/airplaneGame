@@ -1,5 +1,6 @@
 import playerShootSound from '../../assets/sounds/playerShootSound.ogg'
 import enemyDamageSound from '../../assets/sounds/enemyDamageSound.ogg'
+import enemyShootSound from '../../assets/sounds/enemyShootSound.ogg'
 import explosionSound from '../../assets/sounds/explosionSound.ogg'
 import planeEnemySound from '../../assets/sounds/planeEnemySound.ogg'
 import planePlayerSound from '../../assets/sounds/planePlayerSound.ogg'
@@ -15,6 +16,7 @@ const soundLoader = () => {
 
 	// Enemy Sounds
 	loadSound('enemyDamageSound', enemyDamageSound)
+	loadSound('enemyShootSound', enemyShootSound)
 	loadSound('planeEnemySound', planeEnemySound)
 
 	// Default Sounds
