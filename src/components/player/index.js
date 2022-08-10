@@ -12,6 +12,8 @@ const player = (spriteID, widthSprite, heightSprite) => {
 		health(100)
 	])
 
+	play('planePlayerSound', { loop: true, volume: 0.3 })
+
 	playerMovements(playerChar, widthSprite, heightSprite)
 
 	playerShoots(playerChar)

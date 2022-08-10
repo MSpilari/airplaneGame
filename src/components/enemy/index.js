@@ -1,9 +1,9 @@
-import { bullet } from '../bullet'
 import { explosion } from '../explosion'
+import { enemyCollisions } from './collisions'
+import { enemyMovements } from './movements'
+import { enemyShoots } from './shoots'
 
 const enemy = (spriteID, widthSprite, heightSprite) => {
-	let enemyMovement = 'up'
-
 	let enemyChar = add([
 		sprite(spriteID, { width: widthSprite, height: heightSprite, flipX: true }),
 		pos(width() - widthSprite, height() / 2),
@@ -12,27 +12,17 @@ const enemy = (spriteID, widthSprite, heightSprite) => {
 		health(200)
 	])
 
-	onUpdate(() => {
-		if (enemyMovement === 'up' && enemyChar.pos.y > 0) enemyChar.move(0, -500)
+	let planeEnemySound = play('planeEnemySound', { volume: 0.4, loop: true })
 
-		if (enemyMovement === 'up' && enemyChar.pos.y < 0) enemyMovement = 'down'
+	enemyMovements(enemyChar, heightSprite)
 
-		if (enemyMovement === 'down' && enemyChar.pos.y < height())
-			enemyChar.move(0, 500)
+	enemyCollisions()
 
-		if (enemyMovement === 'down' && enemyChar.pos.y > height() - heightSprite)
-			enemyMovement = 'up'
-	})
-
-	onCollide('enemy', 'bullet', enemy => enemy.hurt(25))
-
-	loop(3, () => {
-		enemyChar.exists() &&
-			bullet('fireballBlue', 80, 40, 'Enemy', enemyChar.pos.x, enemyChar.pos.y)
-	})
+	enemyShoots(enemyChar)
 
 	enemyChar.on('death', () => {
 		destroy(enemyChar)
+		planeEnemySound.stop()
 		explosion(widthSprite, heightSprite, 2, enemyChar.pos.x, enemyChar.pos.y)
 	})
 }
